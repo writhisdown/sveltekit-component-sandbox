@@ -25,6 +25,10 @@
 		&.selected {
 			border-bottom: 3px solid #0fbeff;
 		}
+
+		&:focus {
+			outline: 2px solid #4338ca;
+		}
 	}
 
 	.selected {
