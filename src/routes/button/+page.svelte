@@ -5,41 +5,72 @@
 </script>
 
 <section>
+	<h1>Buttons Sandbox</h1>
 	<div>
-		<Button label="click me" />
-		<Button label="click me">
-			<svelte:fragment slot="icon_prefix">
-				<IconClipboardChecked />
-			</svelte:fragment>
+		<Button>click me</Button>
+		<Button>
+			<IconClipboardChecked />
+			click me
 		</Button>
-		<Button label="click me">
-			<svelte:fragment slot="icon_suffix">
-				<IconChevronDown />
-			</svelte:fragment>
+		<Button>
+			click me
+			<IconChevronDown />
 		</Button>
-		<Button label="click me">
-			<svelte:fragment slot="icon_prefix">
-				<IconClipboardChecked />
-			</svelte:fragment>
-			<svelte:fragment slot="icon_suffix">
-				<IconChevronDown />
-			</svelte:fragment>
+		<Button>
+			<IconClipboardChecked />
+			click me
+			<IconChevronDown />
+		</Button>
+	</div>
+
+	<div>
+		<Button variant="secondary">click me</Button>
+		<Button variant="secondary">
+			<IconClipboardChecked />
+			click me
+		</Button>
+		<Button variant="secondary">
+			click me
+			<IconChevronDown />
+		</Button>
+		<Button variant="secondary">
+			<IconClipboardChecked />
+			click me
+			<IconChevronDown />
+		</Button>
+	</div>
+
+	<div>
+		<Button modifier="icon-only" title="icon button" ariaLabel="icon button">
+			<IconClipboardChecked />
+		</Button>
+		<Button variant="secondary" modifier="icon-only" title="icon button" ariaLabel="icon button">
+			<IconClipboardChecked />
 		</Button>
 	</div>
 </section>
 
-<style>
+<style lang="scss">
 	section {
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		flex-direction: column;
 		width: 100%;
 		min-height: calc(100vh - 35.5px);
+
+		& h1 {
+			margin: 1.5rem 0;
+			font-size: 1.5rem;
+			color: #1e293b;
+		}
 	}
 
 	div {
 		display: flex;
 		gap: 1rem;
 		flex-wrap: wrap;
+
+		& + & {
+			margin-top: 1rem;
+		}
 	}
 </style>

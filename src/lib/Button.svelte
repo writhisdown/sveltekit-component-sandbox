@@ -1,11 +1,19 @@
 <script>
-	export let label;
+	export let variant = null;
+	export let modifier = null;
+	export let title;
+	export let ariaLabel;
 </script>
 
-<button on:click type="button">
-	<slot name="icon_prefix" />
-	{label}
-	<slot name="icon_suffix" />
+<button
+	on:click
+	class:secondary={variant === 'secondary'}
+	class:icon-only={modifier === 'icon-only'}
+	type="button"
+	{title}
+	aria-label={ariaLabel}
+>
+	<slot />
 </button>
 
 <style lang="scss">
@@ -17,8 +25,8 @@
 		background: #0369a1;
 		color: #fff;
 		font-size: 1rem;
-		font-weight: 500;
-		border: 1px solid;
+		font-weight: 700;
+		border: 1px solid #0369a1;
 		border-radius: 0.5rem;
 		white-space: nowrap;
 		cursor: pointer;
@@ -43,6 +51,26 @@
 			fill: currentColor;
 			width: 1rem;
 			height: 1rem;
+			pointer-events: none;
 		}
+	}
+
+	.secondary {
+		background: transparent;
+		border-color: #94a3b8;
+		color: #1e293b;
+
+		&:hover {
+			background: #e2e8f0;
+		}
+
+		&:active {
+			background: #334155;
+			color: #fff;
+		}
+	}
+
+	.icon-only {
+		padding: 8px;
 	}
 </style>
