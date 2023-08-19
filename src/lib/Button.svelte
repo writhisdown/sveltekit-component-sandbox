@@ -1,8 +1,8 @@
 <script>
 	export let variant = null;
 	export let modifier = null;
-	export let title;
-	export let ariaLabel;
+	export let title = null;
+	export let ariaLabel = null;
 </script>
 
 <button
@@ -47,7 +47,7 @@
 			outline-offset: 2px;
 		}
 
-		& svg {
+		& :global(svg) {
 			fill: currentColor;
 			width: 1rem;
 			height: 1rem;
